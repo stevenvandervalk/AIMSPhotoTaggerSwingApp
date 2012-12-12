@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_04" class="java.beans.XMLDecoder">
+ <object class="aims.photo.uploader.presentationmodels.DefaultPhotoUploaderPM">
+  <void property="directory">
+   <string>/Users/mindikingsun</string>
+  </void>
+ </object>
+</java>

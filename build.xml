@@ -1,0 +1,457 @@
+<project name="photoTager" default="compile" basedir=".">
+
+
+    <!-- alter the properties below to suit project AND the project name above -->
+
+    <!--
+
+        you may also need to alter deploy targets if you need to exclude further jars
+        or include/exclude various xml/dtd etc in your deployment
+
+    -->
+
+    <property name="warfile" value="phototagger`.war"/>
+    <property name="qawarfile" value="qaapp.war"/>
+    <property name="jarfile" value="phototagger.jar"/>
+    <property name="javadocTitle" value="App"/>
+
+    <!--<property name="localDeployDir" value="Z:/tomcat5512/webapps"/>-->
+    <property name="localDeployDir" value="c:/_work/tomcat5520/webapps"/>
+    <property name="localLogFile" value="r2d2log.props"/>
+    <property name="prodLogFile" value="hydlog.props"/>
+
+
+    <property name="builddir" value="./build/classes"/>
+    <property name="srcdir" value="./src/java"/>
+    <property name="testsrcdir" value="./test"/>
+
+
+    <path id="project.class.path">
+        <pathelement location="${builddir}"/>
+        <fileset dir="./lib">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="./lib/ejbclient">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="pmd.class.path">
+        <pathelement location="${builddir}"/>
+        <fileset dir="./qa/pmd/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="jncss.class.path">
+        <pathelement location="${builddir}"/>
+        <fileset dir="./qa/jncss/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="jcsc.class.path">
+        <pathelement location="${builddir}"/>
+        <fileset dir="./qa/jcsc/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+     <!--
+    <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.class.path"/>
+    <taskdef name="javancss" classname="javancss.JavancssAntTask" classpathref="jncss.class.path"/>
+    <taskdef name="jcsc" classname="rj.tools.jcsc.ant.JCSCTask" classpathref="jcsc.class.path"/>
+    <taskdef resource="checkstyletask.properties" classpath="qa/checkstyle/lib/checkstyle-all-3.5.jar"/>   -->
+
+
+    <target name="compile" depends="clean">
+
+        <copy todir="${builddir}">
+            <fileset dir="src/graphics">
+                <include name="**/*.png"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${builddir}/lookup_bins">
+            <fileset dir="src/java/lookup_bins">
+                <include name="**/*.bin"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${builddir}">
+            <fileset dir="resources">
+                <include name="**/*.exe"/>
+            </fileset>
+        </copy>
+
+
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac srcdir="${srcdir}" fork="true"
+               memoryMaximumSize="196M"
+               destdir="${builddir}"
+               classpathref="project.class.path"/>
+    </target>
+
+    <target name="compile_tests" depends="compile">
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac srcdir="${testsrcdir}" fork="true"
+               memoryMaximumSize="196M"
+               destdir="${builddir}"
+               classpathref="project.class.path"/>
+    </target>
+
+
+
+
+
+    <target name="deploy_jar" description="JAR Deployment" depends="compile">
+        <!-- Compiles source and packages sst atlas data append class into jar -->
+
+        <jar destfile="${jarfile}" basedir="${builddir}">
+            <zipfileset src="lib/aimsdbgui.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+
+            <zipfileset src="lib/dom4j-1.6.1.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/antlr-2.7.6rc1.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/asm.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/binding-1.1.1.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/cglib-2.1.3.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/commons-collections-3.2.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+
+
+            <zipfileset src="lib/commons-logging-1.0.4.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/eltima-componentsDemo.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/forms-1.0.5.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/forms_rt.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="**/*.MF" />
+                <exclude name="**/*.SF" />
+                <exclude name="**/*.DSA" />
+            </zipfileset>
+
+
+            <zipfileset src="lib/looks-1.3.2.jar">
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="**/LICENSE*" />
+            </zipfileset>
+            <zipfileset src="lib/metadata-extractor-2.2.jar">
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/*.MF" />
+                <exclude name="**/*.SF" />
+                <exclude name="**/*.DSA" />
+            </zipfileset>
+
+            <zipfileset src="lib/moss.jar">
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="**/LICENSE*" />
+            </zipfileset>
+            <zipfileset src="lib/ojdbc14.jar">
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="**/LICENSE*" />
+            </zipfileset>
+            <zipfileset src="lib/reefmonsmall.jar">
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="**/LICENSE*" />
+            </zipfileset>
+            <zipfileset src="lib/jnp-client.jar">
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="**/LICENSE*" />
+            </zipfileset>
+
+            <zipfileset src="lib/swingx.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/javax.jms.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <zipfileset src="lib/connector.jar">
+                <exclude name="**/LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+
+
+            <!--<zipfileset src="lib/hibernate3.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+
+            <!--<zipfileset src="lib/hibernate-validator.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+
+            <!--<zipfileset src="lib/hibernate-commons-annotations.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+            <!--<zipfileset src="lib/hibernate-annotations.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+            <zipfileset src="lib/javassist.jar">
+                <exclude name="**/*LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <!--<zipfileset src="lib/jboss-archive-browsing.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+
+            <!--<zipfileset src="lib/jta.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+
+            <zipfileset src="lib/dropboxmq_0.5.jar">
+                <exclude name="**/*LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+                <exclude name="javax/jms/*" />
+            </zipfileset>
+
+            <!--<zipfileset src="lib/connector-api-1.5.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+            <zipfileset src="lib/roxes-win32forjava-1.1.1.jar">
+                <exclude name="**/*LICENSE*" />
+                <exclude name="**/NOTICE.txt" />
+            </zipfileset>
+            <!--<zipfileset src="lib/ejbclient/jboss-common.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+            <!--<zipfileset src="lib/ejbclient/jbossall-client.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+            <!--<zipfileset src="lib/ejbclient/ReefmonLookupsClient.jar">-->
+                <!--<exclude name="**/*LICENSE*" />-->
+                <!--<exclude name="**/NOTICE.txt" />-->
+            <!--</zipfileset>-->
+
+            <manifest>
+                <!--<attribute name="Built-By" value="${user.name}"/>-->
+                <attribute name="Main-Class" value="aims.photo.Main"/>
+                
+            </manifest>
+        </jar>
+
+    </target>
+
+
+    <target name="doc" description="Generates Javadoc">
+        <!-- Create documentation. If using ant in IntelliJ, alter properties to use custom JDK -->
+        <javadoc
+                destdir="./docs/api"
+                author="true"
+                version="true"
+                use="true"
+                windowtitle="${javadocTitle}">
+
+            <packageset dir="./src/java" defaultexcludes="yes">
+                <include name="aims/**"/>
+            </packageset>
+
+            <doctitle>${javadocTitle}</doctitle>
+            <bottom>Copyright &#169; 2004 Australian Institute of Marine Science. All Rights Reserved.</bottom>
+
+            <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
+        </javadoc>
+
+    </target>
+
+
+    <target name="jncss">
+
+        <javancss srcdir="src/java"
+                  generateReport="true"
+                  outputfile="docs/javancss_metrics.xml"
+                  format="xml"
+                  includes="**/*.java"
+                />
+
+        <style basedir="docs" destdir="docs"
+               includes="javancss_metrics.xml"
+               style="qa/jncss/javancss2html.xsl"/>
+
+    </target>
+
+    <target name="pmd" description="Runs PMD for QA">
+
+        <pmd>
+            <ruleset>rulesets/imports.xml</ruleset>
+            <ruleset>rulesets/basic.xml</ruleset>
+            <ruleset>rulesets/braces.xml</ruleset>
+            <ruleset>rulesets/codesize.xml</ruleset>
+            <ruleset>rulesets/coupling.xml</ruleset>
+            <ruleset>rulesets/design.xml</ruleset>
+            <ruleset>rulesets/imports.xml</ruleset>
+            <ruleset>rulesets/naming.xml</ruleset>
+            <ruleset>rulesets/strictexception.xml</ruleset>
+            <ruleset>rulesets/optimizations.xml</ruleset>
+
+            <formatter type="html" toFile="docs/pmd_report.html"/>
+            <fileset dir="src/java">
+                <include name="**/*.java"/>
+            </fileset>
+        </pmd>
+
+    </target>
+
+
+    <target name="jdepend" depends="clean,compile">
+
+        <echo message="${ant.version}"/>
+
+        <jdepend format="xml" outputfile="docs/jdepend-report.xml">
+            <exclude name="java.*"/>
+            <exclude name="javax.*"/>
+            <classespath>
+                <pathelement location="build/classes"/>
+            </classespath>
+        </jdepend>
+
+        <style basedir="docs" destdir="docs"
+               includes="jdepend-report.xml"
+               style="qa/jdepend/jdepend.xsl"/>
+
+    </target>
+
+    <target name="checkstyle" description="Generates a report of code convention violations.">
+
+        <checkstyle config="qa/checkstyle/sun_checks.xml"
+                    failureProperty="checkstyle.failure"
+                    failOnViolation="false">
+            <formatter type="xml" tofile="docs/checkstyle_report.xml"/>
+            <fileset dir="src" includes="**/*.java"/>
+        </checkstyle>
+
+        <style in="docs/checkstyle_report.xml" out="docs/checkstyle_report.html"
+               style="qa/checkstyle/checkstyle-simple.xsl"/>
+
+    </target>
+
+
+    <target name="jcsc">
+
+        <mkdir dir="./docs/jcsc"/>
+
+        <!-- required full path for server deployment -->
+        <property name="targetdir" value="/data/build/dist/party"/>
+
+        <jcsc
+                resultsformatter="rj.tools.jcsc.formatter.XMLResultsFormatter"
+                destdir="${targetdir}/docs/jcsc/"
+                copyassociatedfiles="true"
+                jcschome="${targetdir}/qa/jcsc/">
+
+            <fileset dir="src/java" includes="**/*.java"/>
+
+        </jcsc>
+
+
+    </target>
+
+    <!-- run this target as part of automated build -->
+    <target name="checkstyle-nightly"
+            depends="checkstyle"
+            if="checkstyle.failure"
+            description="Sends email if checkstyle detected code conventions violations.">
+
+        <!-- use your own server and email addresses below. See Ant documentation for details -->
+
+        <mail from="ant@moon.aims.gov.au"
+              tolist="mrehbein@aims.gov.au"
+              mailhost="email.aims.gov.au"
+              messagemimetype="text/html"
+              subject="Checkstyle violation(s) in project ${ant.project.name}"
+              messagefile="checkstyle_report.html"/>
+
+    </target>
+
+
+    <target name="qawar" depends="doc,checkstyle,jdepend,jncss,pmd,jcsc" description="creates qa report deployment">
+        <war destfile="${qawarfile}" webxml="src/metadata/qaweb.xml">
+            <fileset dir="qa/statcvs"/>
+            <fileset dir="docs">
+                <include name="**/*.html"/>
+                <include name="**/*.xml"/>
+                <include name="**/*.xsl"/>
+            </fileset>
+        </war>
+    </target>
+
+    <target name="genkey">
+
+            <genkey alias="AIMS" storepass="secret"
+                   dname="CN=AIMS, OU=Jakarta Division, O=Apache.org, C=US"/>
+     </target>
+
+
+    <target name="clean">
+        <delete>
+            <fileset dir="${builddir}">
+                <include name="**/*.class"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="signjars" >
+           <signjar jar="phototagger.jar"
+                    alias="AIMS" storepass="secret"/>
+    </target>
+
+
+    <target name="webstart">
+        <war destfile="phototagger.war" webxml="src/webstart/web.xml">
+            <fileset dir="src/webstart">
+            </fileset>
+            <fileset file="phototagger.jar"/>
+            <!--<fileset file="signed/hibernate-entitymanager.jar" />-->
+            <!--<fileset file="signed/ejb3-persistence.jar" />-->
+        </war>
+
+    </target>
+
+    <target name="deploy-local-webstart" depends="deploy_jar, webstart">
+        <copy overwrite="true" file="phototagger.war"
+          todir="c:\apache-tomcat-5.5.17\webapps">
+        </copy>
+    </target>
+
+
+
+</project>

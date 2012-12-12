@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jnlp spec="1.4+"
+     codebase="$$codebase"
+    href="phototagger.jnlp"        
+>
+
+<information>
+  <title>Phototagger</title>
+  <vendor>AIMS</vendor>
+  <homepage href="http://hydatina.aims.gov.au:8080/phototagger" />
+  <description>Reef Monitoring Data Entry</description>
+    <offline-allowed/>
+    <shortcut online="true">
+
+        <desktop/>
+
+        <menu submenu="AIMS"/>
+
+    </shortcut>
+
+    <icon kind="splash" href="aims.jpg"/> 
+</information>
+
+
+
+<security>
+  <all-permissions/>
+</security>
+
+<resources>
+    <j2se version="1.6" java-vm-args="-splash:aims.jpg -Xmx512m -Xms256m"/>
+    <jar href="phototagger.jar" download="eager"/>
+    <!--<jar href="ejb3-persistence.jar" download="eager"/>-->
+    <!--<jar href="hibernate-entitymanager.jar" download="eager"/>-->
+</resources>
+
+<application-desc main-class="aims.photo.Main">
+    <!--<argument>c:/aims</argument>    -->
+<application-desc/>
+    
+
+</jnlp>

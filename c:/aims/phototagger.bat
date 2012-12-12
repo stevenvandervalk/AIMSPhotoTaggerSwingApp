@@ -1,0 +1,1 @@
+javaws -offline -XnoSplash -open %1 http://hydatina.aims.gov.au:8080/phototagger/phototagger.jnlp
