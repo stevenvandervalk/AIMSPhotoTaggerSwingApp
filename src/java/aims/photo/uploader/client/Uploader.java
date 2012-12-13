@@ -20,17 +20,17 @@ import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.Bindings;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.TreeExpansionEvent;
-import javax.swing.event.TreeExpansionListener;
+import javax.swing.event.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 
 /**
@@ -95,6 +95,7 @@ public class Uploader implements GotoDirectoryListener {
     private static final String VERSION = "0.3.0";
 
     private KeywordParserPhotoUploader keywordParser;
+    private int listIndex = 0;
 
 
     public JPanel getMainPanel() {
@@ -155,6 +156,7 @@ public class Uploader implements GotoDirectoryListener {
         pasteMetadataButton.addActionListener(new PasteMetadataAction());
         btnDelete.addActionListener(new DeleteKeywordAction());
         btnDeleteDef.addActionListener(new DeleteDefaultKeywordAction());
+        tfSearch.getDocument().addDocumentListener(new ActiveSearchTreeAction());
         btnSearch.addActionListener(new SearchTreeAction());
         this.showLongNamesCheckBox.addChangeListener(new changeLongNames());
         this.defShowLongNamesCheckBox.addChangeListener(new changeDefLongNames());
@@ -741,19 +743,45 @@ public class Uploader implements GotoDirectoryListener {
 
         }
     }
+    private class ActiveSearchTreeAction implements DocumentListener{
+    // DocumentListener methods
+    public void insertUpdate(DocumentEvent ev) {
+        String search = tfSearch.getText();
+        expandNode(search);
+        resetListIndex();
+    }
+
+    public void removeUpdate(DocumentEvent ev) {
+        String search = tfSearch.getText();
+        expandNode(search);
+        resetListIndex();
+    }
+
+    public void changedUpdate(DocumentEvent ev) {
+        String search = tfSearch.getText();
+        expandNode(search);
+        resetListIndex();
+    }
+    }
 
 
-
-    private class SearchTreeAction implements ActionListener{
+    public class SearchTreeAction implements ActionListener{
 
         //@Override
         public void actionPerformed(ActionEvent e) {
             String search = tfSearch.getText();
-            expandNode(search);
+
+            expandNextNode(search, listIndex);
+            listIndex++;
 
         }
+
+
     }
 
+    public void resetListIndex(){
+        listIndex = 0;
+    }
 
     private void buildKeywords() {
         keywordTree.addKeywords();
@@ -818,16 +846,53 @@ public class Uploader implements GotoDirectoryListener {
         trKeywords.expandPath(path);
     }
 
+    public void expandNextNode(String s, int i){
+        DefaultMutableTreeNode root = keywordTree.getRootNode();
+        List<TreePath> pathsList = findListOfTreePaths(root, s);
+        if (listIndex < pathsList.size()-1){
+        TreePath path = pathsList.get(i);
+        trKeywords.setSelectionPath(path);
+        trKeywords.scrollPathToVisible(path);
+        trKeywords.expandPath(path);
+        } else {
+            resetListIndex();
+            expandNextNode(s, i);
+        }
+    }
+
+    public void collapseNode(String s){
+        DefaultMutableTreeNode root = keywordTree.getRootNode();
+        TreePath path = find(root, s);
+
+        trKeywords.collapsePath(path);
+    }
+
 
     private TreePath find(DefaultMutableTreeNode root, String s) {
         @SuppressWarnings("unchecked")
         Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
         while (e.hasMoreElements()) {
             DefaultMutableTreeNode node = e.nextElement();
-            if (node.toString().equalsIgnoreCase(s)) {
+            if (node.toString().toLowerCase().startsWith(s.toLowerCase())) {
                 return new TreePath(node.getPath());
             }
         }
+        return null;
+    }
+
+    private List<TreePath> findListOfTreePaths(DefaultMutableTreeNode root, String s) {
+        @SuppressWarnings("unchecked")
+        Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
+       List<TreePath> paths = new ArrayList<TreePath>();
+        while (e.hasMoreElements()) {
+            DefaultMutableTreeNode node = e.nextElement();
+            if (node.toString().toLowerCase().startsWith(s.toLowerCase())) {
+                    paths.add(new TreePath(node.getPath()));
+            }
+        }
+        if (paths.size() > 0) {
+            return paths;
+        }  else
         return null;
     }
 
