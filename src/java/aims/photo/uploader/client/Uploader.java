@@ -96,6 +96,7 @@ public class Uploader implements GotoDirectoryListener {
 
     private KeywordParserPhotoUploader keywordParser;
     private int listIndex = 0;
+    private String lastSearch = null;
 
 
     public JPanel getMainPanel() {
@@ -746,21 +747,25 @@ public class Uploader implements GotoDirectoryListener {
     private class ActiveSearchTreeAction implements DocumentListener{
     // DocumentListener methods
     public void insertUpdate(DocumentEvent ev) {
+        collapseNode();
         String search = tfSearch.getText();
         expandNode(search);
         resetListIndex();
     }
 
     public void removeUpdate(DocumentEvent ev) {
+        collapseNode();
         String search = tfSearch.getText();
         expandNode(search);
         resetListIndex();
-    }
+           }
 
     public void changedUpdate(DocumentEvent ev) {
+        collapseNode();
         String search = tfSearch.getText();
         expandNode(search);
         resetListIndex();
+
     }
     }
 
@@ -860,12 +865,11 @@ public class Uploader implements GotoDirectoryListener {
         }
     }
 
-    public void collapseNode(String s){
-        DefaultMutableTreeNode root = keywordTree.getRootNode();
-        TreePath path = find(root, s);
-
-        trKeywords.collapsePath(path);
-    }
+    public void collapseNode(){
+              for(int i = trKeywords.getRowCount()-1; i>0; i--){
+                  trKeywords.collapseRow(i);
+              }
+        }
 
 
     private TreePath find(DefaultMutableTreeNode root, String s) {
