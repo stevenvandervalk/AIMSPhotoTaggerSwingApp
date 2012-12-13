@@ -9,9 +9,7 @@ import aims.photo.uploader.Utils.TaxaLookup;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -134,25 +132,34 @@ public class KeywordTree {
 
     private DefaultMutableTreeNode buildTaxonNode() {
         LoggerFactory.LogInfo("buildTaxaNode");
-        DefaultMutableTreeNode taxonomyNode = new DefaultMutableTreeNode("TAXONOMY");
+        SortableTreeNode taxonomyNode = new SortableTreeNode("TAXONOMY");
         TaxaLookup.getInstance().populate("taxons.bin");
         for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
-            addTaxa(taxonomyNode, taxa);
+            addFirstTaxa(taxonomyNode, taxa);
         }
 
-        TaxaLookup.getInstance().populate("echinoderm.bin");
+        TaxaLookup.getInstance().populate("echinodermata.bin");
+        SortableTreeNode animaliaNode = null;
+        animaliaNode = findChild(taxonomyNode, "Animalia(Animals)");
         for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
-            addTaxa(taxonomyNode, taxa);
+            addTaxa(animaliaNode, taxa);
         }
 
         TaxaLookup.getInstance().populate("decapoda.bin");
+
+
+        if (animaliaNode == null) {
+
+            animaliaNode = taxonomyNode;
+        }
         for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
-            addTaxa(taxonomyNode, taxa);
+
+            addTaxa(animaliaNode, taxa);
         }
 
         TaxaLookup.getInstance().populate("test.bin");
         for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
-            addTaxa(taxonomyNode, taxa);
+            addTaxa(animaliaNode, taxa);
         }
 
 
@@ -160,20 +167,51 @@ public class KeywordTree {
         return taxonomyNode;
     }
 
-//    private DefaultMutableTreeNode buildEchinodermNode(){
-//        DefaultMutableTreeNode j = new DefaultMutableTreeNode("ECHINODERM");
-//        EchinodermLookup.getInstance().populate();
-//        for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
-//            addTaxa(j, taxa);
-//        }
-//        return j;
-//    }
 
+    private SortableTreeNode findChild(DefaultMutableTreeNode parentNode, String childString){
+        Enumeration<SortableTreeNode> e = parentNode.children();
+        while (e.hasMoreElements()) {
+            SortableTreeNode node = e.nextElement();
+            if (node.toString().equalsIgnoreCase(childString)) {
+                System.out.println(node.toString() + " equals " + childString);
+                return node;
+            }
+        }
+        return null;
+    }
 
-    private void addTaxa (DefaultMutableTreeNode parent , TaxonEntity taxon) {
-        if (!taxon.getTaxaLevel().equals("GROUP") ) {
-            DefaultMutableTreeNode thisNode = new DefaultMutableTreeNode(taxaNameAndCommonName(taxon));
+    private void addFirstTaxa (SortableTreeNode parent , TaxonEntity taxon) {
+        if (!taxon.getTaxaLevel().equals("GROUP")) {
+            SortableTreeNode thisNode;
+
+            thisNode = new SortableTreeNode(taxaNameAndCommonName(taxon));
             parent.add(thisNode);
+
+
+            for (TaxonEntity  child: taxon.getTaxonsByTaxa()) {
+                addTaxa(thisNode, child);
+            }
+
+            for (AllSpecyEntity species: taxon.getAllSpeciesesByTaxa()) {
+                if (!species.getSpecies().equals("spp")) {
+                    addSpecies(thisNode, species);
+
+                }
+            }
+
+        }
+
+    }
+
+    private void addTaxa (SortableTreeNode parent , TaxonEntity taxon) {
+        if (!taxon.getTaxaLevel().equals("GROUP")) {
+            SortableTreeNode thisNode;
+
+            thisNode = findChild(parent, taxon.getTaxa());
+            if (thisNode==null) {
+                thisNode = new SortableTreeNode(taxaNameAndCommonName(taxon));
+                parent.add(thisNode);
+            }
 
             for (TaxonEntity  child: taxon.getTaxonsByTaxa()) {
                 addTaxa(thisNode, child);
@@ -193,7 +231,6 @@ public class KeywordTree {
     private void addSpecies (DefaultMutableTreeNode parent , AllSpecyEntity species) {
         DefaultMutableTreeNode thisNode = new DefaultMutableTreeNode(taxaNameAndCommonName(species));
         parent.add(thisNode);
-
 
     }
 
