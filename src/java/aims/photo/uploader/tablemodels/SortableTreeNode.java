@@ -7,14 +7,21 @@ import java.util.Comparator;
 
 /**
  * Created with IntelliJ IDEA.
- * User: thart
+ * User: Timothy Hart
  * Date: 12/13/12
  * Time: 12:56 PM
- * To change this template use File | Settings | File Templates.
+ * <p/>
+ * <code>SortableTreeNode</code> is a specific <code>DefaultMutableTreeNode</code> node object that contains
+ * the full functionality of a DefaultMutableTreeNode and incoporates an auto-sorting method for use when merging new Tree Nodes
+ * into existing Nodes.
+ * <p/>
+ * <code>SortableTreeNode</code> achieves this by using a <code>Comparator</code> inside the overridden insert method.
+ *
+ * @author Timothy Hart
  */
 public class SortableTreeNode extends DefaultMutableTreeNode {
 
-    public SortableTreeNode(){
+    public SortableTreeNode() {
         super();
     }
 
@@ -30,12 +37,12 @@ public class SortableTreeNode extends DefaultMutableTreeNode {
     }
 
     @Override
-    public void insert(MutableTreeNode newChild, int childIndex)    {
+    public void insert(MutableTreeNode newChild, int childIndex) {
         super.insert(newChild, childIndex);
         Collections.sort(this.children, nodeComparator);
     }
 
-    protected Comparator nodeComparator = new Comparator () {
+    protected Comparator nodeComparator = new Comparator() {
         @Override
         public int compare(Object o1, Object o2) {
             return o1.toString().compareToIgnoreCase(o2.toString());
@@ -43,7 +50,7 @@ public class SortableTreeNode extends DefaultMutableTreeNode {
 
         @Override
         @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
-        public boolean equals(Object obj)    {
+        public boolean equals(Object obj) {
             return false;
         }
 
@@ -52,4 +59,5 @@ public class SortableTreeNode extends DefaultMutableTreeNode {
             int hash = 7;
             return hash;
         }
-};}
+    };
+}

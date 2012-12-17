@@ -16,19 +16,28 @@ import java.util.*;
  * User: gcoleman
  * Date: 16/01/2008
  * Time: 11:35:20
- * To change this template use File | Settings | File Templates.
+ * Last Updated: 14/12/2012
+ * By: Timothy Hart
+ *
+ * A <code>KeywordTree</code> class is used to build the keyword tree structure for use in the GUI.
+ *
+ *It calls upon the <code>KeywordLookup</code>, <code>LocationLookup</code> and <code>TaxaLookup</code> classes to retrieve the data required.
+ * Using that data it builds a tree structure using both <code>DefualtMutableTreeNode</code> and <code>SortableTreeNode</code> objects.
+ *
+ * @author Timothy Hart
+ *
  */
 public class KeywordTree {
     private DefaultMutableTreeNode rootNode;
     private DefaultMutableTreeNode keywordRoot;
 
 
-    public static String getStringPath (DefaultMutableTreeNode node) {
+    public static String getStringPath(DefaultMutableTreeNode node) {
         Object path[] = node.getUserObjectPath();
         String out = "";
         String delimiter = "";
 
-        for (int i=1; i<path.length; i++) {
+        for (int i = 1; i < path.length; i++) {
             Object category = path[i];
             out = out + delimiter + category.toString();
             delimiter = "!";
@@ -59,13 +68,14 @@ public class KeywordTree {
 
     public void addTaxa() {
         rootNode.add(buildTaxonNode());
-        
+
     }
 
     public void addLocation() {
         rootNode.add(buildLocationNode());
 
     }
+
     private DefaultMutableTreeNode buildKeywordNode() {
         LoggerFactory.LogInfo("buildKeywordNode");
         DefaultMutableTreeNode k = new DefaultMutableTreeNode("KEYWORDS");
@@ -84,7 +94,6 @@ public class KeywordTree {
     }
 
 
-
     private DefaultMutableTreeNode buildLocationNode() {
         LoggerFactory.LogInfo("buildLocationNode");
         DefaultMutableTreeNode locationRoot = new DefaultMutableTreeNode("LOCATION");
@@ -93,13 +102,13 @@ public class KeywordTree {
         DefaultMutableTreeNode locationNode = new DefaultMutableTreeNode("DUMMY");
 
 
-        List<RmSectorEntity> sectorEntities =  LocationLookup.getInstance().getList();
+        List<RmSectorEntity> sectorEntities = LocationLookup.getInstance().getList();
         Collections.sort(sectorEntities);
-        for (RmSectorEntity sector: sectorEntities) {
+        for (RmSectorEntity sector : sectorEntities) {
             try {
 
-                if (sector.getLocation()!=null && !sector.getLocation().equals(locationNode.getUserObject())) {
-                    locationNode = new  DefaultMutableTreeNode(sector.getLocation());
+                if (sector.getLocation() != null && !sector.getLocation().equals(locationNode.getUserObject())) {
+                    locationNode = new DefaultMutableTreeNode(sector.getLocation());
                     locationRoot.add(locationNode);
                 }
 
@@ -117,7 +126,7 @@ public class KeywordTree {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         }
-        
+
         return locationRoot;
     }
 
@@ -129,58 +138,72 @@ public class KeywordTree {
         this.rootNode = rootNode;
     }
 
+    /**<code>buildTaxonNode</code> is used to generate the Taxonomy node for the keyword tree
+     *
+     * To add a new set of data to be placed under a specific branch of the tree, first create a new node using the <code>findChild</code>
+     * mehtod passing in the root node and the name of the node you wish to add the new data to.
+     * Once that node as been created pass it and the new list elements to the <code>addTaxa</code> method.
+     *
+     * @return
+     */
+
 
     private DefaultMutableTreeNode buildTaxonNode() {
         LoggerFactory.LogInfo("buildTaxaNode");
         SortableTreeNode taxonomyNode = new SortableTreeNode("TAXONOMY");
         TaxaLookup.getInstance().populate("taxons.bin");
-        for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
+        for (TaxonEntity taxa : TaxaLookup.getInstance().getList()) {
             addFirstTaxa(taxonomyNode, taxa);
         }
 
         TaxaLookup.getInstance().populate("echinodermata.bin");
         SortableTreeNode animaliaNode = null;
         animaliaNode = findChild(taxonomyNode, "Animalia(Animals)");
-        for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
+        for (TaxonEntity taxa : TaxaLookup.getInstance().getList()) {
             addTaxa(animaliaNode, taxa);
         }
 
         TaxaLookup.getInstance().populate("decapoda.bin");
-
-
         if (animaliaNode == null) {
-
             animaliaNode = taxonomyNode;
         }
-        for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
-
+        for (TaxonEntity taxa : TaxaLookup.getInstance().getList()) {
             addTaxa(animaliaNode, taxa);
         }
 
         TaxaLookup.getInstance().populate("test.bin");
-        for (TaxonEntity taxa: TaxaLookup.getInstance().getList()) {
+        for (TaxonEntity taxa : TaxaLookup.getInstance().getList()) {
             addTaxa(animaliaNode, taxa);
         }
 
 
-            //TaxaLookup.getInstance().writeToXML();
+        //TaxaLookup.getInstance().writeToXML();
         return taxonomyNode;
     }
 
+    /**
+     * <code>findChild</code> is used when inserting a new list of <code>TaxonEntity</code> objects to an already existing node
+     * as long as that node is a <code>SortableTreeNode</code>.
+     *
+     * This is acheived by enumerating the parent node then searching the enumeration for the same element as the string passed in.
+     *
+     * @param parentNode
+     * @param childString
+     * @return
+     */
 
-    private SortableTreeNode findChild(DefaultMutableTreeNode parentNode, String childString){
+    private SortableTreeNode findChild(DefaultMutableTreeNode parentNode, String childString) {
         Enumeration<SortableTreeNode> e = parentNode.children();
         while (e.hasMoreElements()) {
             SortableTreeNode node = e.nextElement();
             if (node.toString().equalsIgnoreCase(childString)) {
-                System.out.println(node.toString() + " equals " + childString);
                 return node;
             }
         }
         return null;
     }
 
-    private void addFirstTaxa (SortableTreeNode parent , TaxonEntity taxon) {
+    private void addFirstTaxa(SortableTreeNode parent, TaxonEntity taxon) {
         if (!taxon.getTaxaLevel().equals("GROUP")) {
             SortableTreeNode thisNode;
 
@@ -188,11 +211,11 @@ public class KeywordTree {
             parent.add(thisNode);
 
 
-            for (TaxonEntity  child: taxon.getTaxonsByTaxa()) {
+            for (TaxonEntity child : taxon.getTaxonsByTaxa()) {
                 addTaxa(thisNode, child);
             }
 
-            for (AllSpecyEntity species: taxon.getAllSpeciesesByTaxa()) {
+            for (AllSpecyEntity species : taxon.getAllSpeciesesByTaxa()) {
                 if (!species.getSpecies().equals("spp")) {
                     addSpecies(thisNode, species);
 
@@ -203,32 +226,32 @@ public class KeywordTree {
 
     }
 
-    private void addTaxa (SortableTreeNode parent , TaxonEntity taxon) {
+    private void addTaxa(SortableTreeNode parent, TaxonEntity taxon) {
         if (!taxon.getTaxaLevel().equals("GROUP")) {
             SortableTreeNode thisNode;
 
             thisNode = findChild(parent, taxon.getTaxa());
-            if (thisNode==null) {
+            if (thisNode == null) {
                 thisNode = new SortableTreeNode(taxaNameAndCommonName(taxon));
                 parent.add(thisNode);
             }
 
-            for (TaxonEntity  child: taxon.getTaxonsByTaxa()) {
+            for (TaxonEntity child : taxon.getTaxonsByTaxa()) {
                 addTaxa(thisNode, child);
             }
 
-            for (AllSpecyEntity species: taxon.getAllSpeciesesByTaxa()) {
+            for (AllSpecyEntity species : taxon.getAllSpeciesesByTaxa()) {
                 if (!species.getSpecies().equals("spp")) {
                     addSpecies(thisNode, species);
 
                 }
             }
-            
+
         }
 
     }
 
-    private void addSpecies (DefaultMutableTreeNode parent , AllSpecyEntity species) {
+    private void addSpecies(DefaultMutableTreeNode parent, AllSpecyEntity species) {
         DefaultMutableTreeNode thisNode = new DefaultMutableTreeNode(taxaNameAndCommonName(species));
         parent.add(thisNode);
 
@@ -237,7 +260,7 @@ public class KeywordTree {
 
     private String taxaNameAndCommonName(AllSpecyEntity species) {
         String commonNames = species.getCommonNames();
-        if (commonNames==null) {
+        if (commonNames == null) {
             return species.getSpecies();
         }
         return species.getSpecies() + "(" + commonNames + ")";
@@ -246,29 +269,27 @@ public class KeywordTree {
 
     private String taxaNameAndCommonName(TaxonEntity taxon) {
         String commonNames = taxon.getCommonNames();
-        if (commonNames==null) {
-            return taxon.getTaxa() ;
+        if (commonNames == null) {
+            return taxon.getTaxa();
         }
         if (commonNames.equals("Other")) {
-            return taxon.getTaxa() ;
+            return taxon.getTaxa();
         }
         return taxon.getTaxa() + "(" + commonNames + ")";
     }
 
-    
 
     public String addKeyword(String keyword) {
         DefaultMutableTreeNode child = new DefaultMutableTreeNode(keyword);
         keywordRoot.add(child);
-        return getStringPath (child);
+        return getStringPath(child);
 
 
     }
 
-    public DefaultMutableTreeNode getKeywordRoot(){
+    public DefaultMutableTreeNode getKeywordRoot() {
         return rootNode;
     }
-
 
 
 }

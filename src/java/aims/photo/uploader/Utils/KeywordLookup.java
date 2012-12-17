@@ -16,7 +16,15 @@ import java.util.ArrayList;
  * User: gcoleman
  * Date: 2/07/2008
  * Time: 14:13:26
- * To change this template use File | Settings | File Templates.
+ * Last Updated:14/12/2012
+ * By: Timothy Hart
+ * <p/>
+ * <code>KeywordLookup</code> is used to retrieve data about <code>Keywords</code> objects located in the specified bin file.
+ * Once the data is obtained a list of keywords is built for use by the <code>KeywordTree</code> class.
+ * <p/>
+ * <code>Lookup</code> uses class loading methods to obtain the file.
+ *
+ * @author Timothy Hart
  */
 public class KeywordLookup {
     private static KeywordLookup ourInstance = new KeywordLookup();
@@ -33,11 +41,11 @@ public class KeywordLookup {
 
     public void populate() {
 
-            if (readFromXML()) {
-                LoggerFactory.LogInfo("Keyword List obtained from the local file.");
-            } else {
-                throw new RuntimeException("ERROR!!! You are not connected to the AIMS server. Also it appears you have not run this program before. The first time you run this program, you should be connected to the AIMS server.");
-            }
+        if (readFromXML()) {
+            LoggerFactory.LogInfo("Keyword List obtained from the local file.");
+        } else {
+            throw new RuntimeException("ERROR!!! There was a problem loading files. Keywords may not be present in the keyword list.");
+        }
 
 
         caseInsensitiveList = new ArrayList<CaseInsensitiveString>(list.size());
@@ -71,12 +79,10 @@ public class KeywordLookup {
     }
 
     private boolean readFromXML() {
-        URL c = getClass().getClassLoader().getResource("lookup_bins/keywords.bin");
         try {
             ObjectInputStream d = null;
             d = new ObjectInputStream(
                     new BufferedInputStream(Thread.currentThread().getContextClassLoader().getResourceAsStream("lookup_bins/keywords.bin")));
-            //new FileInputStream(new File(c.toURI()))));
             list = (ArrayList) d.readObject();
             d.close();
         } catch (Exception e) {

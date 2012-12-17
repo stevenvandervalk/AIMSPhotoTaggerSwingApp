@@ -92,12 +92,10 @@ public class Uploader implements GotoDirectoryListener {
     private SimplePhotoUploaderPM clipboard;
     private PresentationModel model;
     private PresentationModel defaultModel;
-    private static final String VERSION = "0.3.0";
+    private static final String VERSION = "0.4.0";
 
     private KeywordParserPhotoUploader keywordParser;
     private int listIndex = 0;
-    private String lastSearch = null;
-
 
     public JPanel getMainPanel() {
         return mainPanel;
@@ -111,7 +109,6 @@ public class Uploader implements GotoDirectoryListener {
             UIManager.setLookAndFeel("com.jgoodies.looks.plastic.PlasticXPLookAndFeel");
         } catch (Exception e) {
         }
-
 
 
         $$$setupUI$$$();
@@ -744,33 +741,34 @@ public class Uploader implements GotoDirectoryListener {
 
         }
     }
-    private class ActiveSearchTreeAction implements DocumentListener{
-    // DocumentListener methods
-    public void insertUpdate(DocumentEvent ev) {
-        collapseNode();
-        String search = tfSearch.getText();
-        expandNode(search);
-        resetListIndex();
+
+    private class ActiveSearchTreeAction implements DocumentListener {
+        // DocumentListener methods
+        public void insertUpdate(DocumentEvent ev) {
+            collapseNode();
+            String search = tfSearch.getText();
+            expandNode(search);
+            resetListIndex();
+        }
+
+        public void removeUpdate(DocumentEvent ev) {
+            collapseNode();
+            String search = tfSearch.getText();
+            expandNode(search);
+            resetListIndex();
+        }
+
+        public void changedUpdate(DocumentEvent ev) {
+            collapseNode();
+            String search = tfSearch.getText();
+            expandNode(search);
+            resetListIndex();
+
+        }
     }
 
-    public void removeUpdate(DocumentEvent ev) {
-        collapseNode();
-        String search = tfSearch.getText();
-        expandNode(search);
-        resetListIndex();
-           }
 
-    public void changedUpdate(DocumentEvent ev) {
-        collapseNode();
-        String search = tfSearch.getText();
-        expandNode(search);
-        resetListIndex();
-
-    }
-    }
-
-
-    public class SearchTreeAction implements ActionListener{
+    public class SearchTreeAction implements ActionListener {
 
         //@Override
         public void actionPerformed(ActionEvent e) {
@@ -784,7 +782,7 @@ public class Uploader implements GotoDirectoryListener {
 
     }
 
-    public void resetListIndex(){
+    public void resetListIndex() {
         listIndex = 0;
     }
 
@@ -842,8 +840,7 @@ public class Uploader implements GotoDirectoryListener {
     }
 
 
-
-    public void expandNode(String s){
+    public void expandNode(String s) {
         DefaultMutableTreeNode root = keywordTree.getRootNode();
         TreePath path = find(root, s);
         trKeywords.setSelectionPath(path);
@@ -851,25 +848,25 @@ public class Uploader implements GotoDirectoryListener {
         trKeywords.expandPath(path);
     }
 
-    public void expandNextNode(String s, int i){
+    public void expandNextNode(String s, int i) {
         DefaultMutableTreeNode root = keywordTree.getRootNode();
         List<TreePath> pathsList = findListOfTreePaths(root, s);
-        if (listIndex < pathsList.size()-1){
-        TreePath path = pathsList.get(i);
-        trKeywords.setSelectionPath(path);
-        trKeywords.scrollPathToVisible(path);
-        trKeywords.expandPath(path);
+        if (listIndex < pathsList.size() - 1) {
+            TreePath path = pathsList.get(i);
+            trKeywords.setSelectionPath(path);
+            trKeywords.scrollPathToVisible(path);
+            trKeywords.expandPath(path);
         } else {
             resetListIndex();
             expandNextNode(s, i);
         }
     }
 
-    public void collapseNode(){
-              for(int i = trKeywords.getRowCount()-1; i>0; i--){
-                  trKeywords.collapseRow(i);
-              }
+    public void collapseNode() {
+        for (int i = trKeywords.getRowCount() - 1; i > 0; i--) {
+            trKeywords.collapseRow(i);
         }
+    }
 
 
     private TreePath find(DefaultMutableTreeNode root, String s) {
@@ -887,17 +884,17 @@ public class Uploader implements GotoDirectoryListener {
     private List<TreePath> findListOfTreePaths(DefaultMutableTreeNode root, String s) {
         @SuppressWarnings("unchecked")
         Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
-       List<TreePath> paths = new ArrayList<TreePath>();
+        List<TreePath> paths = new ArrayList<TreePath>();
         while (e.hasMoreElements()) {
             DefaultMutableTreeNode node = e.nextElement();
             if (node.toString().toLowerCase().startsWith(s.toLowerCase())) {
-                    paths.add(new TreePath(node.getPath()));
+                paths.add(new TreePath(node.getPath()));
             }
         }
         if (paths.size() > 0) {
             return paths;
-        }  else
-        return null;
+        } else
+            return null;
     }
 
 

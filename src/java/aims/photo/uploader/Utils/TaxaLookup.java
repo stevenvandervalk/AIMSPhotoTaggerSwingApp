@@ -15,7 +15,18 @@ import java.util.*;
  * User: gcoleman
  * Date: 2/07/2008
  * Time: 14:59:16
- * To change this template use File | Settings | File Templates.
+ * Last Updated: 14/12/2012
+ * By: Timothy Hart
+ * <p/>
+ * <code>TaxaLookup</code> is used to retrieve data about <code>TaxonEntity</code> objects located in the specified bin file.
+ * Once the data is retrieved a list of enitities is built while ensuring that all relevant data about an entity is maintained from file reading.
+ * <p/>
+ * <code>TaxaLookup</code> includes functionality to ensure that each entities heirachy in a taxonomic tree is present and fully expressed.
+ * i.e. any relevant super taxa and sub taxa including any <code>AllSpecyEntity</code>.
+ * <p/>
+ * <code>TaxaLookup</code> uses class loading methods to obtain the file.
+ *
+ * @author Timothy Hart
  */
 public class TaxaLookup {
     private static TaxaLookup ourInstance = new TaxaLookup();
@@ -28,7 +39,6 @@ public class TaxaLookup {
     }
 
     private ArrayList<TaxonEntity> list;
-    private ArrayList<TaxonEntity> elist;
     private List<CaseInsensitiveString> caseInsensitiveList;
     private Map<String, TaxonConvenient> nameToTaxon;
 
@@ -39,9 +49,8 @@ public class TaxaLookup {
             LoggerFactory.LogInfo("Taxa List obtained from the local file.");
 
         } catch (Exception e) {
-            throw new RuntimeException("ERROR!!! You are not connected to the AIMS server. Also it appears you have not run this program before. The first time you run this program, you should be connected to the AIMS server.", e);
+            throw new RuntimeException("ERROR!!! There was a problem loading the files. Taxonomy may not be present in the keyword list.", e);
         }
-
 
 
         nameToTaxon = new HashMap<String, TaxonConvenient>(list.size());
@@ -97,10 +106,6 @@ public class TaxaLookup {
         return list;
     }
 
-    public List<TaxonEntity> getEList(){
-        return elist;
-    }
-
     public void writeToXML() {
         ObjectOutputStream e = null;
 
@@ -120,17 +125,13 @@ public class TaxaLookup {
         }
     }
 
-    private void  readFromXML(String binFileName) {
+    private void readFromXML(String binFileName) {
         try {
             ObjectInputStream d = null;
             d = new ObjectInputStream(
                     new BufferedInputStream(Thread.currentThread().getContextClassLoader().getResourceAsStream("lookup_bins/" + binFileName)));
-//            e = new ObjectInputStream(
-//                    new BufferedInputStream(Thread.currentThread().getContextClassLoader().getResourceAsStream("lookup_bins/echinoderm.bin")));
             list = (ArrayList) d.readObject();
-
             d.close();
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -13,7 +13,18 @@ import java.util.List;
  * User: gcoleman
  * Date: 11/08/2008
  * Time: 14:47:06
- * To change this template use File | Settings | File Templates.
+ * Last Updated: 14/12/2012
+ * By: Timothy Hart
+ * <p/>
+ * <code>LocationLookup</code> is used to acquire data about <code>RmSectorEntity</code> objects located in the specified bin file.
+ * Once the data is retrieved a list of enitities is built while ensuring that all relevant data about an entity is maintained from file reading.
+ * <p/>
+ * <code>LocationLookup</code> includes functionality to ensure that each entities correct location in a list is present and fully expressed.
+ * i.e. any related sectors and any and all <code>ReefGeolocale</code> reefs.
+ * <p/>
+ * <code>LocationLookup</code> uses class loading methods to obtain the file.
+ *
+ * @author Timothy Hart
  */
 public class LocationLookup {
     private static LocationLookup ourInstance = new LocationLookup();
@@ -29,11 +40,11 @@ public class LocationLookup {
 
     public void populate() {
 
-            if (readFromXML()) {
-                LoggerFactory.LogInfo("Sector List obtained from the local file.");
-            } else {
-                throw new RuntimeException("ERROR!!! Failed to load keyword list. Your keyword tree will be empty");
-            }
+        if (readFromXML()) {
+            LoggerFactory.LogInfo("Sector List obtained from the local file.");
+        } else {
+            throw new RuntimeException("ERROR!!! There was a problem loading files. Locations may not be present in the keyword list.");
+        }
     }
 
     public List<RmSectorEntity> getList() {
@@ -59,19 +70,13 @@ public class LocationLookup {
         }
     }
 
-
-    //InputStream in = loader.getResourceAsStream("/location.bin");
-
     private boolean readFromXML() {
-        URL c = getClass().getClassLoader().getResource("lookup_bins/location.bin");
         try {
             ObjectInputStream d = null;
             d = new ObjectInputStream(
                     new BufferedInputStream(Thread.currentThread().getContextClassLoader().getResourceAsStream("lookup_bins/location.bin")));
-                            //new FileInputStream(new File(c.toURI()))));
             list = (List) d.readObject();
             Collections.sort(list);
-
             d.close();
         } catch (Exception e) {
             e.printStackTrace();
