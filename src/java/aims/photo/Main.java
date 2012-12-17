@@ -1,10 +1,8 @@
-package aims.photo;
+package java.aims.photo;
 
 import aims.app.generic.GlobalParamaters;
 import aims.app.generic.gui.SwingPleaseWait;
 import aims.app.generic.logger.LoggerFactory;
-import aims.photo.messaging.GotoDirectory;
-import aims.photo.messaging.InstallImatch;
 import aims.photo.uploader.client.Uploader;
 
 /**
@@ -17,9 +15,9 @@ import aims.photo.uploader.client.Uploader;
 public class Main {
 
     public static void main(String[] args) {
-        LoggerFactory.LogInfo("Args = " + + args.length + args);
+        LoggerFactory.LogInfo("Args = " + +args.length + args);
 
-        if (args.length==0) {
+        if (args.length == 0) {
             InstallImatch.installShortcut();
             GlobalParamaters.setPleaseWait(new SwingPleaseWait());
             GlobalParamaters.getPleaseWait().setMessage("Initializing");
@@ -28,8 +26,8 @@ public class Main {
             Uploader gui = new Uploader();
 
         } else {
-            if (args.length==1) {
-                System.out.println("Goto Dir " + args[0])  ;
+            if (args.length == 1) {
+                System.out.println("Goto Dir " + args[0]);
 
 
                 GotoDirectory gotoDirectory = new GotoDirectory();
@@ -39,8 +37,8 @@ public class Main {
 
             }
 
-            if (args.length==2) {
-                System.out.println("Goto Dir " + args[1])  ;
+            if (args.length == 2) {
+                System.out.println("Goto Dir " + args[1]);
 
 
                 GotoDirectory gotoDirectory = new GotoDirectory();
@@ -51,7 +49,7 @@ public class Main {
             }
 
             System.exit(1);
-            
+
         }
 
 

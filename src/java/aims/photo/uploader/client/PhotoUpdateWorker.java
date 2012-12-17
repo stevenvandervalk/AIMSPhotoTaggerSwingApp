@@ -1,7 +1,6 @@
 package aims.photo.uploader.client;
 
 import aims.app.generic.GlobalParamaters;
-import aims.app.generic.logger.LoggerFactory;
 import aims.photo.uploader.presentationmodels.PhotoUploaderPM;
 import org.jdesktop.swingx.util.SwingWorker;
 

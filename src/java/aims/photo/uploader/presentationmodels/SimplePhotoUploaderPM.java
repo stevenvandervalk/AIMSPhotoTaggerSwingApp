@@ -1,14 +1,7 @@
 package aims.photo.uploader.presentationmodels;
 
-import aims.app.generic.logger.LoggerFactory;
-import aims.app.generic.utilities.Utils;
 import com.jgoodies.binding.beans.Model;
 
-import javax.swing.*;
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
-import java.io.*;
-import java.util.List;
 import java.util.ArrayList;
 
 /**

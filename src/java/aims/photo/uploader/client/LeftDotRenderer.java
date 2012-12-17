@@ -1,8 +1,8 @@
 package aims.photo.uploader.client;
-import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.table.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.*;
 
 
 

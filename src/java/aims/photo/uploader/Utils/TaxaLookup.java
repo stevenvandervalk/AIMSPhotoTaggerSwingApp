@@ -7,7 +7,6 @@ import aims.app.reefmonitoring.ejb3.TaxonEntity;
 import aims.app.reefmonitoring.model.GenusSpecies;
 
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 /**

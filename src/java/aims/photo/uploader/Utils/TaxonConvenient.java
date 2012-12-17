@@ -1,7 +1,7 @@
 package aims.photo.uploader.Utils;
 
-import aims.app.generic.utilities.CaseInsensitiveString;
 import aims.app.generic.logger.LoggerFactory;
+import aims.app.generic.utilities.CaseInsensitiveString;
 import aims.app.reefmonitoring.ejb3.AllSpecyEntity;
 import aims.app.reefmonitoring.ejb3.TaxonEntity;
 

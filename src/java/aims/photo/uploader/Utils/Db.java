@@ -1,9 +1,5 @@
 package aims.photo.uploader.Utils;
 
-import aims.app.generic.db.JPAUtil;
-import aims.app.generic.GlobalParamaters;
-import aims.app.generic.dbgui.DatabaseGuiList;
-
 /**
  * Created by IntelliJ IDEA.
  * User: gcoleman

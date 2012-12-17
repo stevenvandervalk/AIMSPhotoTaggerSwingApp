@@ -1,17 +1,12 @@
 package aims.photo.uploader.client.treednd;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.Rectangle;
+import javax.swing.*;
+import javax.swing.tree.TreePath;
+import java.awt.*;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.image.BufferedImage;
-
-import javax.swing.JTree;
-import javax.swing.tree.TreePath;
 
 /**
  * <p>A drop target for class <code>JTree</code> that implements autoscrolling, automatic

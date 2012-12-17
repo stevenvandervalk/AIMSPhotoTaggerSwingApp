@@ -1,15 +1,15 @@
 package aims.photo.uploader.tablemodels;
 
 import aims.app.generic.logger.LoggerFactory;
-
 import aims.app.reefmonitoring.ejb3.*;
 import aims.photo.uploader.Utils.KeywordLookup;
 import aims.photo.uploader.Utils.LocationLookup;
 import aims.photo.uploader.Utils.TaxaLookup;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreePath;
-import java.util.*;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.

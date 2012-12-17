@@ -2,8 +2,8 @@ package aims.photo.uploader.presentationmodels;
 
 import aims.app.generic.logger.LoggerFactory;
 
-import java.beans.XMLEncoder;
 import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
 
 /**

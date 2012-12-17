@@ -1,9 +1,8 @@
 package aims.photo.uploader.client;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Created by IntelliJ IDEA.

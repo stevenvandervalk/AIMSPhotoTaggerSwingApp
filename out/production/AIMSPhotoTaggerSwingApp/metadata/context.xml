@@ -1,0 +1,19 @@
+<Context path="/party" docBase="party" debug="1" reloadable="true" crossContext="true">
+
+    <ResourceLink
+                name="jdbc/intranet"
+                global="jdbc/intranet"
+                type="javax.sql.DataSource"/>
+
+    <ResourceLink
+                name="jdbc/aimscape"
+                global="jdbc/aimscape"
+                type="javax.sql.DataSource"/>
+    
+
+    <ResourceLink
+                name="http/users"
+                global="http/users"
+                type="aims.http.online.OnlineUsersResource"/>
+
+</Context>

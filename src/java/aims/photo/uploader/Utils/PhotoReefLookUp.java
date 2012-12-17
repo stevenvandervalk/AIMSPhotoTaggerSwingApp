@@ -10,8 +10,8 @@ package aims.photo.uploader.Utils;
 import aims.app.generic.logger.LoggerFactory;
 import aims.app.reefmonitoring.lookups.ReefLookUp;
 
-import java.beans.XMLEncoder;
 import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.List;
 

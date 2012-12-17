@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.0+"
+  codebase="http://localhost:8080/photouploader/"
+  href="uploader.jnlp">
+
+
+  <information>
+    <title>Photo Uploader</title>
+    <vendor>AIMS Data Centre</vendor>
+    <homepage href="index.html"/>
+    <description>Photo Uploader - Upload photos to Data Centre Repository</description>
+    <icon href="JPhotoAlbum.jpg"/>
+    <!--<icon kind="splash" href="JPhotoAlbumLoading.jpg"/>-->
+    <offline-allowed/>
+    </information>
+
+  <security>
+      <all-permissions/>
+  </security>
+
+  <application-desc main-class="aims.photo.uploader.client.Uploader"/>
+
+  <resources>
+    <java version="1.6+" initial-heap-size="32m" max-heap-size="512m" />
+    <property name="webstart" value="true"/>
+    <jar href="photo.jar"/>
+    <jar href="metadata-extractor-2.2.jar"/>
+      <jar href="forms_rt.jar"/>
+  </resources>
+
+</jnlp>

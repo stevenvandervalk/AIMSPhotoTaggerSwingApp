@@ -31,8 +31,8 @@
 
 package components;
 
+import javax.swing.*;
 import java.io.File;
-import javax.swing.ImageIcon;
 
 /* Utils.java is used by FileChooserDemo2.java. */
 public class Utils {

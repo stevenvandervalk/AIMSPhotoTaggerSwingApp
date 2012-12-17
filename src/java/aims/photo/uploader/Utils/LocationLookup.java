@@ -4,7 +4,6 @@ import aims.app.generic.logger.LoggerFactory;
 import aims.app.reefmonitoring.ejb3.RmSectorEntity;
 
 import java.io.*;
-import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 

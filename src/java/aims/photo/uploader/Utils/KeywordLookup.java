@@ -6,9 +6,8 @@ import aims.app.reefmonitoring.ejb3.Keywords;
 
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.net.URL;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**

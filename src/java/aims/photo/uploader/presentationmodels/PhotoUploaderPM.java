@@ -1,7 +1,6 @@
 package aims.photo.uploader.presentationmodels;
 
 import aims.photo.uploader.client.ImageBrowser;
-import aims.photo.uploader.client.Photo;
 
 public class PhotoUploaderPM extends SimplePhotoUploaderPM {
     private PhotoList photoList = new PhotoList();

@@ -19,23 +19,11 @@ Publisher: O'Reilly
 //rather than the regular file icon. (see ThumbnailFileView.java)
 //
 
-    import java.awt.Component;
-    import java.awt.Container;
-    import java.awt.FlowLayout;
-    import java.awt.Graphics;
-    import java.awt.Image;
-    import java.awt.event.ActionEvent;
-    import java.awt.event.ActionListener;
-    import java.io.File;
-
-    import javax.swing.Icon;
-    import javax.swing.ImageIcon;
-    import javax.swing.JButton;
-    import javax.swing.JFileChooser;
-    import javax.swing.JFrame;
-    import javax.swing.JLabel;
-    import javax.swing.filechooser.FileView;
-    import javax.swing.plaf.metal.MetalIconFactory;
+import javax.swing.*;
+import javax.swing.filechooser.FileView;
+import javax.swing.plaf.metal.MetalIconFactory;
+import java.awt.*;
+import java.io.File;
 
 //ThumbNailFileView.java
 //A simple implementation of the FileView class that provides a 16x16 image of
