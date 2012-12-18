@@ -2,38 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="756aa154-e3bd-486e-9aaf-4082db7bdd36" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CommandLine.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/Db.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/Db.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/presentationmodels/DefaultPhotoUploaderPM.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/presentationmodels/DefaultPhotoUploaderPM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/ImageBrowser.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/ImageBrowser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/ImageList.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/ImageList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/KeywordLookup.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/KeywordLookup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/KeywordManager.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/KeywordManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/KeywordManagerApp.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/KeywordManagerApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/tablemodels/KeywordTree.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/tablemodels/KeywordTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/LargePhoto.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/LargePhoto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/LargePhotoForm.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/LargePhotoForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/LeftDotRenderer.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/LeftDotRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/LocationLookup.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/LocationLookup.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/ClipboardPhotoUploaderPM.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/ClipboardPhotoUploaderPM.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/Db.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/Db.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/DefaultPhotoUploaderPM.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/DefaultPhotoUploaderPM.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/FindKeywordWorker.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/FindKeywordWorker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/treednd/GenericTransferable.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/treednd/GenericTransferable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectory$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectory$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectory$ThisMessageListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectory$ThisMessageListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectory.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectoryListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/messaging/GotoDirectoryListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$GotoNewDirectory.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$GotoNewDirectory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$OpenPhotoListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$OpenPhotoListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$PasteAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$PasteAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$TabFileChooserChanged.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser$TabFileChooserChanged.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageBrowser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/components/ImageFilter.class" afterPath="$PROJECT_DIR$/build/classes/components/ImageFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageList.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImageList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImagePanel.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ImagePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/messaging/InstallImatch.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/messaging/InstallImatch.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordList.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordListListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordListListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/KeywordLookup.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/KeywordLookup.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManager.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManagerApp$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManagerApp$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManagerApp$AddKeywordAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManagerApp$AddKeywordAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManagerApp.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/KeywordManagerApp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordPM.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordPM.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordParserPhotoUploader.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/KeywordParserPhotoUploader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/KeywordTableModel.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/KeywordTableModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/KeywordTree.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/KeywordTree.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto$NextListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto$NextListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto$PreviousListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto$PreviousListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhoto.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhotoForm.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LargePhotoForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LeftDotRenderer.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/LeftDotRenderer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/LocationLookup.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/LocationLookup.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/Main.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/MetadataTableModel.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/MetadataTableModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/MyListCellRenderer.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/MyListCellRenderer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/treednd/NodeMoveTransferHandler.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/treednd/NodeMoveTransferHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Photo.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Photo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/PhotoList.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/PhotoList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/PhotoReefLookUp.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/PhotoReefLookUp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/PhotoSelectionListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/PhotoSelectionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/PhotoUpdateWorker.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/PhotoUpdateWorker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/PhotoUploaderPM.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/PhotoUploaderPM.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/messaging/QueueInfo.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/messaging/QueueInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/messaging/ReceiveMessage.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/messaging/ReceiveMessage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/SimplePhotoUploaderPM.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/presentationmodels/SimplePhotoUploaderPM.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/SortableTreeNode$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/SortableTreeNode$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/SortableTreeNode.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/tablemodels/SortableTreeNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$2.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$3.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$4.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/TagDialog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/TaxaLookup.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/TaxaLookup.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/TaxonConvenient.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/Utils/TaxonConvenient.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/TestKeywordTree.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/TestKeywordTree.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ThumbNailFileView$Icon16.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ThumbNailFileView$Icon16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ThumbNailFileView.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ThumbNailFileView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ToolbarButton.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/ToolbarButton.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/treednd/TreeDropTarget.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/treednd/TreeDropTarget.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ActiveSearchTreeAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ActiveSearchTreeAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$AddKeywordAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$AddKeywordAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ApplyAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ApplyAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$BuildKeywordAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$BuildKeywordAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$BuildTaxaAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$BuildTaxaAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$CopyMetadataAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$CopyMetadataAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DefTreeMouseListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DefTreeMouseListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DefaultsAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DefaultsAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DeleteDefaultKeywordAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DeleteDefaultKeywordAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DeleteKeywordAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$DeleteKeywordAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$FindKeywordsAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$FindKeywordsAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$KeywordBuilder.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$KeywordBuilder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$PasteMetadataAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$PasteMetadataAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$SearchTreeAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$SearchTreeAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$SelectAllAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$SelectAllAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$SelectNoneAction.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$SelectNoneAction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$TaxaBuilder.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$TaxaBuilder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ThisTreeExpansionListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ThisTreeExpansionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ThisWindowAdapter.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$ThisWindowAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$TreeMouseListener.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$TreeMouseListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$changeDefLongNames.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$changeDefLongNames.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$changeLongNames.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader$changeLongNames.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Uploader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils$1.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils$DirFilter.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils$DirFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils$PicFilter.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils$PicFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils.class" afterPath="$PROJECT_DIR$/build/classes/aims/photo/uploader/client/Utils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/components/Utils.class" afterPath="$PROJECT_DIR$/build/classes/components/Utils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AIMSPhotoTaggerSwingApp.iml" afterPath="$PROJECT_DIR$/AIMSPhotoTaggerSwingApp.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/Main.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/MyViewChooser.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/MyViewChooser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/treednd/NodeMoveTransferHandler.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/treednd/NodeMoveTransferHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/PhotoReefLookUp.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/PhotoReefLookUp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/PhotoSelectionListener.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/PhotoSelectionListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/PhotoUpdateWorker.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/PhotoUpdateWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/presentationmodels/PhotoUploaderPM.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/presentationmodels/PhotoUploaderPM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/presentationmodels/SimplePhotoUploaderPM.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/presentationmodels/SimplePhotoUploaderPM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/TagDialog.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/TagDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/TaxaLookup.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/TaxaLookup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/TaxonConvenient.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/Utils/TaxonConvenient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/treednd/TreeDropTarget.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/treednd/TreeDropTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/Uploader.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/Uploader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/Utils.java" afterPath="$PROJECT_DIR$/src/java/aims/photo/uploader/client/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/components/Utils.java" afterPath="$PROJECT_DIR$/src/java/components/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AIMSPhotoTaggerSwingApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="756aa154-e3bd-486e-9aaf-4082db7bdd36" time="1355738228095" ignored="false" />
+    <file path="/Dummy.txt" changelist="756aa154-e3bd-486e-9aaf-4082db7bdd36" time="1355797048214" ignored="false" />
     <file path="/Main.java" changelist="756aa154-e3bd-486e-9aaf-4082db7bdd36" time="1355739212018" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +119,8 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/java/aims/photo/Main.java" line="19" class="java.aims.photo.Main" package="java.aims.photo">
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/java/aims/photo/Main.java" line="20" class="java.aims.photo.Main" package="java.aims.photo">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -65,7 +135,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
-    <breakpoint_any>
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -99,6 +169,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -108,10 +180,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/aims/photo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="34" selection-start="291" selection-end="291" vertical-scroll-proportion="0.3525641">
+            <state line="33" column="24" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,10 +200,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file leaf-file-name="URLClassLoader.class" pinned="false" current="true" current-in-tab="true">
+        <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/net/URLClassLoader.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="-0.0">
+            <state line="40" column="0" selection-start="2128" selection-end="2128" vertical-scroll-proportion="1.21875">
               <folding />
             </state>
           </provider>
@@ -160,10 +232,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="10" />
-    <option name="width" value="1420" />
-    <option name="height" value="860" />
+    <option name="width" value="1440" />
+    <option name="height" value="896" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -191,6 +261,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -202,10 +273,6 @@
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.6 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -228,76 +295,35 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AIMSPhotoTaggerSwingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AIMSPhotoTaggerSwingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AIMSPhotoTaggerSwingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AIMSPhotoTaggerSwingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="recentsLimit" value="5" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.xml" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="aims.photo.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -328,8 +354,9 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -343,29 +370,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="10" width="1420" height="860" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="896" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964131" sideWeight="0.6713917" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32972974" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32860824" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2496361" sideWeight="0.67027026" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24892396" sideWeight="0.6713917" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -426,8 +453,26 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <antCommandLine value="" />
+      <runInBackground value="true" />
+      <targetFilters />
+      <treeView value="true" />
+      <verbose value="true" />
+      <viewClosedWhenNoErrors value="false" />
+      <expanded value="true" />
+    </buildFile>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/java/aims/photo/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="34" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/aims/photo/messaging/GotoDirectory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="5" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0">
@@ -435,19 +480,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/java/aims/photo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+        <state line="33" column="24" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/aims/photo/messaging/GotoDirectory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="5" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/aims/photo/Main.java">
+    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/net/URLClassLoader.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="291" selection-end="291" vertical-scroll-proportion="0.3525641">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="40" column="0" selection-start="2128" selection-end="2128" vertical-scroll-proportion="1.21875">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -508,6 +560,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

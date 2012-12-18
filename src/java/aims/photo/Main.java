@@ -1,8 +1,9 @@
-package java.aims.photo;
+package aims.photo;
 
 import aims.app.generic.GlobalParamaters;
 import aims.app.generic.gui.SwingPleaseWait;
 import aims.app.generic.logger.LoggerFactory;
+import aims.photo.messaging.GotoDirectory;
 import aims.photo.uploader.client.Uploader;
 
 /**
@@ -18,7 +19,7 @@ public class Main {
         LoggerFactory.LogInfo("Args = " + +args.length + args);
 
         if (args.length == 0) {
-            InstallImatch.installShortcut();
+            aims.photo.messaging.InstallImatch.installShortcut();
             GlobalParamaters.setPleaseWait(new SwingPleaseWait());
             GlobalParamaters.getPleaseWait().setMessage("Initializing");
             GlobalParamaters.getPleaseWait().show();
